@@ -21,11 +21,9 @@ connection.once('open', ()=>{
 })
 
 // Routes
-// const toDoRouter = require('./routes/todoList');
-// const userRouter = require('./routes/users');
-//
-// app.use('/exercises', exerciseRouter);
-// app.use('/users', userRouter);
+const toDoRouter = require('./routes/todo');
+
+app.use('', toDoRouter);
 
 
 app.listen(port, ()=>{

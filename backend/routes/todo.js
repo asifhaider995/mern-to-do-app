@@ -9,7 +9,9 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
+  console.log(req);
   const title = req.body.title;
+  console.log(req.body.dueDate);
   const dueDate = Date.parse(req.body.dueDate);
   const newToDo = new ToDo({title, dueDate});
   newToDo.save()
@@ -18,7 +20,7 @@ router.route('/add').post((req, res) => {
 });
 
 router.route('/:id').get((req, resp) => {
-  Exercise.findById(req.params.id)
+  ToDo.findById(req.params.id)
   .then( todo => resp.json(todo))
   .catch(error => {console.log("Error: "+error);resp.status(400).json("Error: "+error)})
 })
